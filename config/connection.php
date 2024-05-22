@@ -1,19 +1,15 @@
 <?php
 
-namespace App\Config;
+define("HOSTNAME", "localhost");
+define("USERNAME", "root");
+define("PASSWORD", "");
+define("DB_NAME", "litera-hub");
+define("PORT", 3306);
 
-class Connection {
+$connect = mysqli_connect(HOSTNAME, USERNAME, PASSWORD, DB_NAME, PORT);
 
-  private $hostname = "localhost";
-  private $username = "root";
-  private $password = "";
-  private $name = "litera-hub";
-  private $port = 3306;
-
-  public function connect() {
-    return mysqli_connect($this->hostname, $this->username, $this->password, $this->name, $this->port) or die("failed: ".  mysqli_connect_error());
-  }
-
+if (!$connect) {
+  die("Failed: ".mysqli_connect_error());
 }
 
 ?>
