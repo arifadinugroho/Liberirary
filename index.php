@@ -20,14 +20,20 @@
         </a>
         <div class="relative">
           <?php if (isset($_SESSION["logged_in"])) : ?>
-            <div class="flex items-center gap-2 cursor-pointer" id="profile" onclick="showMenu()">
+            <div class="flex items-center gap-2 cursor-pointer w-60 justify-end" id="profile" onclick="showMenu()">
               <p class="font-semibold md:block hidden"><?= $_SESSION["username"] ?></p>
               <img src="./images/profile.jpg" alt="profile" width="50" class="rounded-full">
             </div>
             <div class="rounded-lg bg-white shadow-sm shadow-black w-full absolute top-16 hidden p-2" id="menu">
-              <a href="./dashboard/">
-                <p>dashboard</p>
-              </a>
+              <?php if ($_SESSION["role"] === "admin") : ?>
+                <a href="./admin/dashboard.php">
+                  <p>dashboard</p>
+                </a>
+              <?php else : ?>
+                <a href="./peminjam/dashboard.php">
+                  <p>dashboard</p>
+                </a>
+              <?php endif; ?>
               <form action="./logout.php"><button type="submit">logout</button></form>
             </div>
           <?php else : ?>
@@ -42,13 +48,13 @@
 
     <main class="h-screen flex items-center justify-center z-50 md:px-10 px-4">
       <div class="flex flex-col items-center">
-        <h1 class="font-bold text-6xl text-center tracking-wider">WELCOME <br> TO <br> <span class="text-blue-500">LIBERIRARY</span></h1>
-        <a href="./daftar-buku.php">
-          <button class="p-3 mt-2 rounded-md bg-blue-500 transition-all duration-500 hover:bg-blue-800 text-white">See Catalogue</button>
+        <h1 class="font-bold text-6xl text-center tracking-wider">SELAMAT DATANG <br> DI <br> <span class="text-blue-500">LIBERIRARY</span></h1>
+        <a href="./buku/daftar-buku.php">
+          <button class="p-3 mt-2 font-semibold rounded-md bg-blue-500 transition-all duration-500 hover:bg-blue-800 text-white">Daftar Buku</button>
         </a>
       </div>
+      <h1 class="absolute bottom-2">Made With Love By Darrell, Arif Adi, Faghrul</h1>
     </main>
-
   </section>
 
   <script src="./script.js"></script>

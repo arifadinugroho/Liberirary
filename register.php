@@ -35,6 +35,7 @@
             </div>
             <label for="username" class="font-semibold mb-2">Username</label> <br>
             <input type="text" name="username" id="username" placeholder="Enter your username" class="border-b-[1px] outline-none active:border-b-[1px] focus:border-blue-500 px-4 py-3 w-full mb-2.5"> <br>
+            <p class="text-red-500"><?= $errInput; ?></p>
             <label for="register_email" class="font-semibold mb-2">Email</label> <br>
             <input type="email" name="register_email" id="register_email" placeholder="Enter your email" class="border-b-[1px] outline-none active:border-b-[1px] focus:border-blue-500 px-4 py-3 w-full mb-2.5"> <br>
             <p class="text-red-500"><?= $errInput; ?></p>
@@ -42,8 +43,8 @@
             <input type="password" name="register_password" id="register_password" placeholder="Enter your password" class="border-b-[1px] outline-none active:border-b-[1px] focus:border-blue-500 px-4 py-3 w-full mb-2.5"> <br>
             <label for="role" class="font-semibold mb-2">Role</label> <br>
             <select name="role" id="role" class="px-4 py-3 w-full outline-none">
+              <option value="admin">Admin</option>
               <option value="peminjam">Peminjam</option>
-              <option value="pembaca">Pembaca</option>
             </select>
             <button type="submit" name="register" value="register" class="bg-blue-500 text-white py-2 px-4 w-full my-6 rounded-lg transition-all duration-300 hover:bg-blue-800">Register</button>
             <p class="text-center">Already have an account? <a href="./login.php" class="text-blue-500">Log In</a></p>
