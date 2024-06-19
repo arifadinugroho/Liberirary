@@ -18,7 +18,7 @@ $buku = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM tbl_buku WHERE 
     if (isset($errMessage)) {
       echo $errMessage;
     } else {
-      echo $errMessage;
+      echo "";
     }
     
     ?>
