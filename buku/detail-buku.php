@@ -42,7 +42,7 @@
         <p><?= $datas["description"]; ?></p>
         <p class="my-2">- <?= $upload_by["username"]; ?></p>
         <div class="flex w-full gap-2">
-          <?php if ($datas["status"] === "tersedia" && $_SESSION["role"] !== "admin") : ?>
+          <?php if ($datas["status"] === "tersedia" && isset($_SESSION["role"]) && $_SESSION["role"] !== "admin") : ?>
             <form method="post" action="../controller/pinjamBukuController.php" class="w-full">
               <input type="hidden" name="id_buku" id="id_buku" value="<?= $id_buku ?>">
               <button type="submit" name="pinjam_buku" value="pinjam_buku" class="bg-blue-500 text-white py-2 px-4 w-full my-6 rounded-lg transition-all duration-300 hover:bg-blue-800">Pinjam</button>

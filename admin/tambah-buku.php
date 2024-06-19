@@ -5,13 +5,13 @@
   <input type="file" name="cover" id="cover" class="p-2.5 mb-2 border-none" required> <br>
   <p class="text-red-500">
     <?php
-    
+
     if (isset($errMessage)) {
       echo $errMessage;
     } else {
       echo "";
     }
-    
+
     ?>
   </p> <br>
   <label for="penerbit">Penerbit</label> <br>
@@ -32,5 +32,10 @@
   </select>
   <label for="deskripsi">Deskripsi</label> <br>
   <input type="text" name="deskripsi" id="deskripsi" class="border-2 p-2.5 mb-2 outline-none w-full rounded-md border-zinc-500 focus:border-blue-500" required> <br>
-  <button type="submit" name="tambah_buku" value="tambah_buku" class="px-4 py-3 rounded-lg text-white w-full mb-2 bg-blue-500 font-bold transition-all duration-500 hover:bg-blue-800">Submit</button>
+  <div class="flex gap-2">
+    <button type="submit" name="tambah_buku" value="tambah_buku" class="px-4 py-3 rounded-lg text-white w-full mb-2 bg-blue-500 font-bold transition-all duration-500 hover:bg-blue-800">Submit</button>
+    <a href="dashboard.php?page=daftar-buku" class="w-full">
+      <button type="button" class="bg-zinc-500 text-white py-3 px-4 w-full rounded-lg transition-all duration-300 hover:bg-zinc-800">Batal</button>
+    </a>
+  </div>
 </form>
