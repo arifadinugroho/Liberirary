@@ -21,7 +21,6 @@
 
     $datas = mysqli_fetch_all(mysqli_query($connect, "SELECT tbl_users.username, tbl_users.email, tbl_buku.title, tbl_buku.status, tbl_peminjaman.id, tbl_peminjaman.borrowed_at FROM tbl_peminjaman JOIN tbl_users ON (tbl_users.user_id = tbl_peminjaman.user_id) JOIN tbl_buku ON (tbl_buku.book_id = tbl_peminjaman.book_id) WHERE tbl_peminjaman.admin_id = '$id_admin'"), MYSQLI_ASSOC);
     $i = 1;
-    // print_r($datas);
 
     ?>
     <?php foreach ($datas as $data) { ?>
@@ -47,7 +46,7 @@
             </form>
             <?php
 
-            $id_buku = $_POST["id_buku"];
+            $id_buku = isset($_POST["id_buku"]) ? htmlspecialchars(trim($_POST["id_buku"])) : null;
 
             if (isset($_POST["hapus"])) {
               $query = mysqli_query($connect, "DELETE FROM tbl_peminjaman WHERE id = '$id_buku'");

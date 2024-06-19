@@ -57,7 +57,7 @@
         require("../config/connection.php");
 
         $allowed = array("peminjaman", "pengembalian");
-        $page = $_GET["page"];
+        $page = isset($_GET["page"]) ? htmlspecialchars(trim($_GET["page"])) : null;
 
         $username = $_SESSION["username"];
         $user = mysqli_fetch_assoc(mysqli_query($connect, "SELECT user_id FROM tbl_users WHERE username = '$username' AND role = 'peminjam'"));

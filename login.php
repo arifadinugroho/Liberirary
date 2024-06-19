@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<?php require("./controller/loginController.php") ?> 
+<?php require("./controller/loginController.php") ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,10 +36,30 @@
             </div>
             <label for="email" class="font-semibold mb-2">Email</label> <br>
             <input type="email" name="email" id="email" placeholder="Enter your email" class="px-4 py-3 w-full outline-none border-b-[1px] focus:border-blue-500"> <br>
-            <p class="text-red-500"><?= $errInput["email"]; ?></p>
+            <p class="text-red-500">
+              <?php
+
+              if (isset($errInput["email"])) {
+                echo $errInput["email"];
+              } else {
+                echo "";
+              }
+
+              ?>
+            </p>
             <label for="password" class="font-semibold mb-2">Password</label> <br>
             <input type="password" name="password" id="password" placeholder="Enter your password" class="px-4 py-3 w-full outline-none border-b-[1px] focus:border-blue-500"> <br>
-            <p class="text-red-500"><?= $errInput["password"]; ?></p>
+            <p class="text-red-500">
+              <?php
+
+              if (isset($errInput["password"])) {
+                echo $errInput["password"];
+              } else {
+                echo "";
+              }
+
+              ?>
+            </p>
             <button type="submit" name="login" value="login" class="bg-blue-500 text-white py-2 px-4 w-full my-6 rounded-lg transition-all duration-300 hover:bg-blue-800">Log In</button>
             <p class="text-center">Don't have an account? <a href="./register.php" class="text-blue-500">Register</a></p>
           </form>

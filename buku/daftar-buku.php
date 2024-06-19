@@ -27,7 +27,7 @@
             $query;
 
             if (isset($_POST["judul"])) {
-                $judul = htmlspecialchars(trim($_POST["judul"]));
+                $judul = isset($_POST["judul"]) ? htmlspecialchars(trim($_POST["judul"])) : null;
                 
                 $query = mysqli_query($connect, "SELECT * FROM tbl_buku WHERE title LIKE '%$judul%'");
             } else {

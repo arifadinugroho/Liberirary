@@ -5,8 +5,8 @@ require("./config/connection.php");
 $errInput = array("email" => "", "password" => "");
 
 if (isset($_POST["login"])) {
-  $email = $_POST["email"];
-  $password = $_POST["password"];
+  $email = htmlspecialchars(trim($_POST["email"]));
+  $password = htmlspecialchars(trim($_POST["password"]));
 
   $query = mysqli_query($connect, "SELECT * FROM tbl_users WHERE email = '$email'");
 

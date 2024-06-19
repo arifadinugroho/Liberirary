@@ -15,7 +15,7 @@
 
   require("../config/connection.php");
 
-  $id_buku = $_GET["id_buku"];
+  $id_buku = isset($_GET["id_buku"]) ? htmlspecialchars(trim($_GET["id_buku"])) : null;
   $datas = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM tbl_buku WHERE book_id = '$id_buku'"));
   $id_user = $datas["upload_by"];
   $upload_by = mysqli_fetch_assoc(mysqli_query($connect, "SELECT username FROM tbl_users WHERE user_id = '$id_user'"));

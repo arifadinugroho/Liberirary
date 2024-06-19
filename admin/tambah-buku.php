@@ -3,7 +3,17 @@
   <input type="text" name="judul" id="judul" class="border-2 p-2.5 mb-2 outline-none rounded-md border-zinc-500 w-full py-2 focus:border-blue-500" required> <br>
   <label for="cover">Cover</label> <br>
   <input type="file" name="cover" id="cover" class="p-2.5 mb-2 border-none" required> <br>
-  <p class="text-red-500"><?= $errMessage; ?></p> <br>
+  <p class="text-red-500">
+    <?php
+    
+    if (isset($errMessage)) {
+      echo $errMessage;
+    } else {
+      echo "";
+    }
+    
+    ?>
+  </p> <br>
   <label for="penerbit">Penerbit</label> <br>
   <input type="text" name="penerbit" id="penerbit" class="border-2 p-2.5 mb-2 outline-none rounded-md border-zinc-500 w-full py-2 focus:border-blue-500" required> <br>
   <label for="pengarang">Pengarang</label> <br>

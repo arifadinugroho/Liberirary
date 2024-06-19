@@ -35,10 +35,30 @@
             </div>
             <label for="username" class="font-semibold mb-2">Username</label> <br>
             <input type="text" name="username" id="username" placeholder="Enter your username" class="border-b-[1px] outline-none active:border-b-[1px] focus:border-blue-500 px-4 py-3 w-full mb-2.5"> <br>
-            <p class="text-red-500"><?= $errInput; ?></p>
+            <p class="text-red-500">
+              <?php
+
+              if (isset($errInput)) {
+                echo $errInput;
+              } else {
+                echo "";
+              }
+
+              ?>
+            </p>
             <label for="register_email" class="font-semibold mb-2">Email</label> <br>
             <input type="email" name="register_email" id="register_email" placeholder="Enter your email" class="border-b-[1px] outline-none active:border-b-[1px] focus:border-blue-500 px-4 py-3 w-full mb-2.5"> <br>
-            <p class="text-red-500"><?= $errInput; ?></p>
+            <p class="text-red-500">
+              <?php
+
+              if (isset($errInput)) {
+                echo $errInput;
+              } else {
+                echo "";
+              }
+
+              ?>
+            </p>
             <label for="register_password" class="font-semibold mb-2">Password</label> <br>
             <input type="password" name="register_password" id="register_password" placeholder="Enter your password" class="border-b-[1px] outline-none active:border-b-[1px] focus:border-blue-500 px-4 py-3 w-full mb-2.5"> <br>
             <label for="role" class="font-semibold mb-2">Role</label> <br>

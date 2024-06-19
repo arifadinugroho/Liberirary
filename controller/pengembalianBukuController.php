@@ -2,7 +2,7 @@
 
 require("../config/connection.php");
 
-$id_buku = htmlspecialchars(trim($_POST["id_buku"]));
+$id_buku = isset($_POST["id_buku"]) ? htmlspecialchars(trim($_POST["id_buku"])) : null;
 $data = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM tbl_peminjaman WHERE book_id = '$id_buku'"));
 $id_admin = $data["admin_id"];
 $id_user = $data["user_id"];

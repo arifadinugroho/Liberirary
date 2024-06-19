@@ -39,7 +39,7 @@
         <td class="px-2 py-3">
           <?php
 
-          $id_buku = $_POST["id_buku"];
+          $id_buku = isset($_POST["id_buku"]) ? htmlspecialchars(trim($_POST["id_buku"])) : null;
 
           if (isset($_POST["hapus"])) {
             $query = mysqli_query($connect, "DELETE FROM tbl_pengembalian WHERE id = '$id_buku'");

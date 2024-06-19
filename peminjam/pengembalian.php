@@ -20,7 +20,6 @@
     $user_id = $user["user_id"];
 
     $datas = mysqli_fetch_all(mysqli_query($connect, "SELECT tbl_buku.title, tbl_buku.cover, tbl_peminjaman.book_id, tbl_peminjaman.borrowed_at, tbl_pengembalian.id, tbl_pengembalian.returned_at FROM tbl_pengembalian JOIN tbl_peminjaman ON (tbl_peminjaman.user_id = tbl_pengembalian.user_id) JOIN tbl_users ON (tbl_users.user_id = tbl_pengembalian.user_id) JOIN tbl_buku ON (tbl_buku.book_id = tbl_pengembalian.book_id)"), MYSQLI_ASSOC);
-    // print_r($datas);
     $i = 1;
 
     ?>
@@ -34,7 +33,7 @@
         <td class="px-2 py-3">
           <?php
 
-          $id_buku = $_POST["id_buku"];
+          $id_buku = isset($_POST["id_buku"]) ? htmlspecialchars(trim($_POST["id_buku"])) : null;
 
           if (isset($_POST["hapus"])) {
             $query = mysqli_query($connect, "DELETE FROM tbl_pengembalian WHERE id = '$id_buku'");

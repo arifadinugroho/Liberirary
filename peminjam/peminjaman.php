@@ -40,13 +40,12 @@
             <td class="px-2 py-3 flex gap-2">
               <?php
 
-              $id_buku = $_POST["id_buku_hapus"];
+              $id_buku = isset($_POST["id_buku_hapus"]) ? htmlspecialchars(trim($_POST["id_buku_hapus"])) : null;
 
               if (isset($_POST["hapus"])) {
                 $query = mysqli_query($connect, "DELETE FROM tbl_peminjaman WHERE book_id = '$id_buku'");
 
                 if ($query) {
-                  echo "<script>alert('success')</script>";
                   header("Location:../peminjam/dashboard.php?page=peminjaman");
                 }
               }
@@ -68,7 +67,7 @@
   </tbody>
   <?php
 
-  $id_buku = htmlspecialchars(trim($_POST["id_buku"]));
+  $id_buku = isset($_POST["id_buku"]) ? htmlspecialchars(trim($_POST["id_buku"])) : null;
   $data = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM tbl_peminjaman WHERE book_id = '$id_buku'"));
   $id_admin = $data["admin_id"];
   $id_user = $data["user_id"];

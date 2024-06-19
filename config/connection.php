@@ -1,12 +1,11 @@
 <?php
 
-define("HOSTNAME", "localhost");
-define("USERNAME", "root");
-define("PASSWORD", "");
-define("DB_NAME", "litera-hub");
-define("PORT", 3306);
+$hostname = "localhost";
+$username = "root";
+$password =  "";
+$name = "liberirary";
 
-$connect = mysqli_connect(HOSTNAME, USERNAME, PASSWORD, DB_NAME, PORT);
+$connect = mysqli_connect($hostname, $username, $password, $name);
 
 if (!$connect) {
   die("Failed: ".mysqli_connect_error());

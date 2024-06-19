@@ -59,7 +59,7 @@
 
         $allowed = array("beranda", "daftar-buku", "daftar-peminjam", "peminjaman", "pengembalian", "tambah-buku", "edit-buku", "hapus-buku");
 
-        $page = $_GET["page"];
+        $page = isset($_GET["page"]) ? htmlspecialchars(trim($_GET["page"])) : null;
 
         ?>
         <?php if (!isset($page)) { ?>

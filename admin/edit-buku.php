@@ -1,7 +1,7 @@
 <?php
 require("../config/connection.php");
 
-$id_buku = $_GET["id_buku"];
+$id_buku = isset($_GET["id_buku"]) ? htmlspecialchars(trim($_GET["id_buku"])) : null; 
 
 $buku = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM tbl_buku WHERE book_id = '$id_buku'"));
 
@@ -12,7 +12,17 @@ $buku = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM tbl_buku WHERE 
   <input type="text" value="<?= $buku["title"] ?>" name="edit_judul" id="edit_judul" class="border-2 p-2.5 mb-2 outline-none rounded-md border-zinc-500 w-full py-2 focus:border-blue-500" required> <br>
   <label for="cover">Cover</label> <br>
   <input type="file" name="edit_cover" id="edit_cover" class="p-2.5 mb-2 border-none" required> <br>
-  <p class="text-red-500"><?= $errMessage; ?></p> <br>
+  <p class="text-red-500">
+    <?php
+    
+    if (isset($errMessage)) {
+      echo $errMessage;
+    } else {
+      echo $errMessage;
+    }
+    
+    ?>
+  </p> <br>
   <label for="penerbit">Penerbit</label> <br>
   <input type="text" value="<?= $buku["publisher"] ?>" name="edit_penerbit" id="edit_penerbit" class="border-2 p-2.5 mb-2 outline-none rounded-md border-zinc-500 w-full py-2 focus:border-blue-500" required> <br>
   <label for="pengarang">Pengarang</label> <br>
