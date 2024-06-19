@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 
 <form action="dashboard.php?page=daftar-peminjam" method="post" class="mb-6">
   <input type="text" name="username" id="username" placeholder="search username" class="border-2 p-2.5 outline-none rounded-md border-zinc-500 focus:border-blue-500">

@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 
 <div class="flex justify-between mb-6">
   <form action="dashboard.php?page=daftar-buku" method="post">

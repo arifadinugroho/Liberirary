@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 
 <table class="w-full">
   <thead class="text-[18px] border-b-[1px] border-slate-600">
